@@ -1,12 +1,17 @@
-const express = require('express')
+const express = require("express");
 const { spawn } = require('child_process');
 const app = express();
 const port = 8812;
 
-app.get('/script1', (req, res) => {
+(function processEntry($){
+    var summernoteText = $('.note-editable').text(); //get just the text
+    console.log(summernoteText);
+})(jQuery);
+
+app.get('/semantics.py', (req, res) => {
     var data1;
    // spawn new child process to call the python script
-   const python = spawn('python3', ['script1.py']);
+   const python = spawn('python3', ['semantics.py', ]);
    // collect data from script
    python.stdout.on('data', function (data) {
       console.log('Pipe data from python script ...');
