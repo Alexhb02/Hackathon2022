@@ -47,3 +47,9 @@ app.post("/journal", function(req, res){
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
 });
+
+
+(function($){
+  var summernoteText = $('.note-editable').text(); //get just the text
+  console.log(summernoteText);
+})(jQuery);

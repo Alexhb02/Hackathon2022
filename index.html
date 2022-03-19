@@ -24,7 +24,11 @@
     
     <form method="post" id="entry">
         <textarea id="summernote" name="editordata"></textarea>
-        <button type="button" id ="submit-button" class="btn btn-success btn-lg">Submit Entry</button>
+        <button onclick="
+        (function($){
+          var summernoteText = $('.note-editable').text(); //get just the text
+          console.log(summernoteText);
+        })(jQuery);" type="button" id ="submit-button" class="btn btn-success btn-lg">Submit Entry</button>
       </form>
   <script>
     $(document).ready(function() {
