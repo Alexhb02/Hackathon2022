@@ -8,12 +8,18 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  <script src="lang/summernote-ko-KR.js"></script>
 </head>
 <body>
-  <div id="summernote"><p>Hello Summernote</p></div>
+    <form method="post">
+        <textarea id="summernote" name="editordata"></textarea>
+      </form>
   <script>
     $(document).ready(function() {
-        $('#summernote').summernote();
+        $('#summernote').summernote({
+            lang: 'ko-KR', // default: en-US
+            placeholder: "Tell us about your day!"
+        });
     });
   </script>
 </body>
