@@ -9,13 +9,22 @@
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
   <script src="lang/summernote-ko-KR.js"></script>
+  <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <div id="username">Username</div>
-    <div id="login"><button type="login-button" class="btn btn-primary">Login</button></div>
-    <form method="post">
+    <div class="header"><div id="username">
+        <h1>Alex HB's Journal</h1>
+    </div>
+    <div class="header-right">
+        <div id="login"><button type="login-button" class="btn btn-primary btn-lg">Login</button>
+        </div>
+    </div>
+</div>
+
+    
+    <form method="post" id="entry">
         <textarea id="summernote" name="editordata"></textarea>
-        <button type="submit-button" class="btn btn-success">Submit Entry</button>
+        <button type="button" id ="submit-button" class="btn btn-success btn-lg">Submit Entry</button>
       </form>
   <script>
     $(document).ready(function() {
