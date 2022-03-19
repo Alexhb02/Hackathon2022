@@ -30,6 +30,20 @@ app.post("/login", function(req, res){
   })
 });
 
+app.post("/journal", function(req, res){
+  const { text, user_id} = req.body
+  //insert spawn code
+  pool.query("SELECT user_firstname FROM users WHERE email = $1 AND password = $2", [email, password],(error, results) => {
+      if (error) {
+          res.status(403).send(`Error: ${error}`)
+          return;
+      }
+      res.send('This worked ${results.rows}')
+      //res.render('DynamicFile/TripSearch', {data: results.rows});
+
+  })
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
 });
