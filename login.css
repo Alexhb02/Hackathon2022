@@ -3,7 +3,7 @@
 
   body{
     font-family: Helvetica, sans-serif;
-       background: #a8d5e5;
+    background-color: #f1f1f1;
 }
 
   #background {
@@ -12,7 +12,7 @@
 
   #cardthingy {
       margin: 30px;
-      background: #f1f1f1;;
+      background: white;
   }
 
   #loginbtn{
