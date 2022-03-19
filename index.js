@@ -39,6 +39,8 @@ app.post("/signup", function(req, res){
           res.status(403).send(`Error: ${error}`)
           return;
       }
+      res.status(201).send(`Success`)
+          return;
       res.render('index', {data: results.rows});
 
   })

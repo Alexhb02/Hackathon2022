@@ -39,23 +39,27 @@
                     <form>
       
                       <div class="form-outline mb-4">
-                        <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Example1cg">Your Name</label>
+                        <input type="text" id="firstname" class="form-control form-control-lg" />
+                        <label class="form-label" for="firstname">First Name</label>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <input type="text" id="lastname" class="form-control form-control-lg" />
+                        <label class="form-label" for="lastname">Last Name</label>
                       </div>
       
                       <div class="form-outline mb-4">
-                        <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Example3cg">Your Email</label>
+                        <input type="email" id="email" class="form-control form-control-lg" />
+                        <label class="form-label" for="email">Your Email</label>
                       </div>
       
                       <div class="form-outline mb-4">
-                        <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Example4cg">Password</label>
+                        <input type="password" id="password" class="form-control form-control-lg" />
+                        <label class="form-label" for="password">Password</label>
                       </div>
       
                       <div class="form-outline mb-4">
-                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                        <input type="password" id="repeat-password" class="form-control form-control-lg" />
+                        <label class="form-label" for="repeat-password">Repeat your password</label>
                       </div>
       
                       <div class="form-check d-flex justify-content-center mb-5">
@@ -71,9 +75,30 @@
                       </div>
       
                       <div class="d-flex justify-content-center">
-                        <button id="registerbtn" type="button" class="btn btn-success btn-block btn-lg text-body">Register</button>
+                        <button onclick="createUser()" id="registerbtn" type="button" class="btn btn-success btn-block btn-lg text-body">Register</button>
                       </div>
-      
+                      <script>
+                        function createUser() {
+                          // Form fields, see IDs above
+                          const params = {
+                            firstname: document.querySelector('#firstname').value,
+                            lastname: document.querySelector('#lastname').value,
+                            email: document.querySelector('#email').value,
+                            password: document.querySelector('#password').value,
+                          }
+                      
+                          const http = new XMLHttpRequest()
+                          http.open('POST', '/signup')
+                          http.setRequestHeader('Content-type', 'application/json')
+                          http.send(JSON.stringify(params)) // Make sure to stringify
+                          console.log(JSON.stringify(params))
+                          http.onload = function() {
+                            // Do whatever with response
+                            console.log("Reached here")
+                            alert(http.responseText)
+                          }
+                        }
+                      </script>
                       <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="login.html" class="fw-bold text-body"><u>Login here</u></a></p>
       
                     </form>
