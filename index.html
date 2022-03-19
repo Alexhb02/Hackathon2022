@@ -11,13 +11,20 @@
   <script src="lang/summernote-ko-KR.js"></script>
 </head>
 <body>
+    <div id="username">Username</div>
+    <div id="login"><button type="login-button" class="btn btn-primary">Login</button></div>
     <form method="post">
         <textarea id="summernote" name="editordata"></textarea>
+        <button type="submit-button" class="btn btn-success">Submit Entry</button>
       </form>
   <script>
     $(document).ready(function() {
         $('#summernote').summernote({
             lang: 'ko-KR', // default: en-US
+            height: 300,
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,            // set maximum height of editor
+            focus: true,
             placeholder: "Tell us about your day!"
         });
     });
