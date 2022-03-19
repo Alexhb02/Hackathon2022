@@ -99,8 +99,8 @@ def giveSuggestions(emotions):
 
     return suggestions
 
-# main method
-if __name__ == '__main__':
+def main():
+    # loop through arguments
     for arg in sys.argv[1:]:
         emotions = getSemantics(arg)
         suggestions = giveSuggestions(emotions)
@@ -110,6 +110,10 @@ if __name__ == '__main__':
         for i in range(len(emotions)):
             emotions_w_suggestions = emotions_w_suggestions + "|" + emotions[i] + "|" + suggestions[i]
 
-        print(emotions)
-        print(suggestions)
-        print(emotions_w_suggestions)
+        #print(emotions)
+        #print(suggestions)
+        return emotions_w_suggestions
+
+# main method
+if __name__ == '__main__':
+    main()
