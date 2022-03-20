@@ -7,15 +7,27 @@ pool = mysql.createPool({
   password: 'Hack2022',
   database: 'sys'
 });
-let ejs = require('ejs');
-const bodyparser = require('body-parser')
+
 const express = require("express")
-const path = require('path')
 const router = express.Router()
 const app = express()
-app.use(express.static(__dirname + "/public"))
+
+const path = require('path');
+const { Server } = require('http');
+
 var PORT = 3306
 
+let ejs = require('ejs');
+app.set("views", path.join(__dirname))
+app.set("view engine", "ejs")
+const bodyparser = require('body-parser')
+//app.engine('html', require('ejs').renderFile)
+// Body-parser middleware
+app.use(bodyparser.urlencoded({extended:false}))
+app.use(bodyparser.json())
+const cors = require('cors');
+app.use(cors({methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}));
+app.use(express.static(__dirname + "/public"))
 app.get('/', (req, res) => {
   res.send('Hello World!')
 });
@@ -32,7 +44,12 @@ app.post("/login", function(req, res){
   })
 });
 
-app.post("/signup", function(req, res){
+app.get("/signup", function(req, res){
+    res.status(201).send(`Hello`)
+    return;
+});
+
+app.post("/signup", cors(), function(req, res){
   const { firstname, lastname, email, password} = req.body
   pool.query("INSERT INTO users (user_firstname, user_lastname, user_email, password) VALUES (?, ?, ?, ?, ?, ?);", [firstname, lastname, email, password],(error, results) => {
       if (error) {
