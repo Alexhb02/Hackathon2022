@@ -24,8 +24,8 @@
     
     <form method="post" id="entry">
         <textarea id="summernote" name="editordata"></textarea>
-        <button onclick="processEntry()"
-        type="button" id ="submit-button" class="btn btn-success btn-lg">Submit Entry</button>
+        <button type="button" id ="edit-button" class="btn btn-light btn-lg">Edit Entry</button>
+        <button onclick="$.fn.processEntry();" type="button" id ="submit-button" class="btn btn-success btn-lg">Submit Entry</button>
       </form>
   <script>
     $(document).ready(function() {
