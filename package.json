@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Alexhb02/Hackathon2022#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1"
   }
 }
